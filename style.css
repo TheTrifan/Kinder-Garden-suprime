@@ -1,0 +1,1055 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#toTop {
+	width:40px;
+	height:40px;
+	text-align:center;
+	padding:5px;
+	position:fixed;
+	bottom:10px; /* отступ кнопки от нижнего края страницы*/
+	right:10px;
+	cursor:pointer;
+	display:none;
+	background-image:url(images/up.png);
+}
+
+body{
+   font-family: sans-serif;
+   background-color: #ee6c6c;
+}
+
+.home_logo{
+    width: 55px;
+    height: 55px;
+}
+
+.scrollto{
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color:#FFFFFF;
+}
+
+.scrollto:hover:before{
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition: 0.25;
+    transition: 0.25s;
+}
+
+.scrollto::before{
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #dfd300;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    border-radius: 3px;
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(0);
+    -webkit-transition: 0.25;
+    transition: 0.25s;
+}
+
+.container{
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.top{
+    min-height: 850px;
+    background: linear-gradient(0deg, #ff6868 10.84%, rgba(192, 117, 127, 0) 31.12%);
+}
+
+.heading-contacts{
+    font-weight: 500;
+    font-size: 44px;
+    text-align: center;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    background-color: #d8232a;
+    background-size: cover;
+    justify-content:space-around;
+    list-style-type: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+}
+
+.home_logo:hover{
+    -webkit-filter: brightness(150%);
+}
+
+.top__box{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.top__info{
+    padding-top: 200px;
+    flex-grow: 1;
+    background-image: url(images/logo.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+.top__button{
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    background: #5A98D0;
+    box-shadow: 5px 10px 20px rgba(53, 110, 173, 0.2);
+    border-radius: 10px;
+    padding: 15px 50px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 71px;
+}
+
+.top__heading{
+    width: 510px;
+    font-weight: 500;
+    font-size: 48px;
+    color: #ffffff;
+    text-shadow: -0 -1px 1px #FDEF02;
+    line-height: 74px;
+    letter-spacing: 0.04em;
+    margin-bottom: 32px;
+}
+
+.top__text{
+    width: 425px;
+}
+
+.heading-contacts{
+    font-size: 44px;
+    text-align: center;
+}
+
+.heading{
+    font-size: 46px;
+    color: #ffffff;
+    text-shadow: -0 -1px 1px #FDEF02;
+    text-align: center;
+    line-height: 46px;
+    margin-bottom: 400px;
+    letter-spacing: 0.05em;
+}
+
+.heading-we{
+    font-size: 46px;
+    color: #ffffff;
+    text-shadow: -0 -1px 1px #FDEF02;
+    text-align: center;
+    line-height: 46px;
+    letter-spacing: 0.05em;
+}
+
+.heading-mini{
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+}
+
+.text-mini{
+    font-size: 18px;
+    line-height: 26px;
+    color: #000000;
+    letter-spacing: 0.05em;
+}
+
+.what-we-do{
+    padding-top: 64px;
+}
+
+.info_block{
+    display: inline-block;
+    width:255px;
+	height:250px;
+    padding: 30px 0 0 80px;
+    text-align: left;
+}
+
+.text{
+    font-size: 16px;
+    line-height: 26px;
+    color: #ffffff;
+    text-shadow: -0 -1px 1px #FDEF02;
+    letter-spacing: 0.05em;
+}
+
+.project{
+    padding-bottom: 400px;
+}
+
+.items {
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+}
+
+.items .item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    z-index: -1;
+    opacity: 0;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item.active {
+    opacity: 1;
+    z-index: 99;
+    box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);
+}
+
+.item.prev {
+    z-index: 2;
+    opacity: 0.25;
+    transform: translate(-125%, -50%);
+}
+
+.item.next {
+    z-index: 2;
+    opacity: 0.25;
+    transform: translate(25%, -50%);
+}
+
+.items .button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 555px;
+    z-index: 100;
+}
+.arrow{
+    width: 50px;
+    height: 50px;
+}
+.button-container .button {
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    position: relative;
+    opacity: 0.95;
+    transition: all 300ms ease-in-out;
+}
+
+.button-container .button:hover {
+    opacity: 1;
+}
+
+.button-container .button:before {
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    z-index: -99;
+}
+
+.button-container .button:nth-child(1) {
+    float: left;
+}
+
+.button-container .button:nth-child(2) {
+    float: right;
+}
+
+.text_project{
+    width: 75%;
+    font-size: 26px;
+    margin: 32px auto 64px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.project__img{
+    width: 100%;
+    border-radius: 13px;
+}
+
+.content{
+    height: 100%;
+}
+
+.project__parent{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+}
+
+.project__item{
+    flex-grow: 1;
+}
+
+.project__item_margin{
+    margin-right: 32px;
+}
+
+.card-box__main{
+    display: flex;
+    justify-content: center;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.card-box{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.card{
+    width: 359px;
+    margin-right: 10px;
+    padding: 44px 32px;
+    box-sizing: border-box;
+    box-shadow: 5px 20px 50px rgba(16, 122, 177, 0.2);
+    border-radius: 10px;
+    background-color: #dfd300;
+    display: flex;
+    flex-direction: column;
+}
+
+.card__img{
+    width: 132px;
+    height: 132px;
+    align-self: center;
+    margin-bottom: 51px;
+}
+
+/*-----------------------------footer---------------------------------*/
+.footer{
+    background: linear-gradient(0deg, #f33f3f 8.84%, rgba(117, 157, 192, 0) 31.12%);
+    width: 100%;
+    margin-top: 112px;
+    display: inline-block;
+}
+
+.footer__heading{
+    width: 340.96px;
+    height: 92px;
+    left: 113px;
+    line-height: 46px;
+    font-size: 36px;
+    color: #FFFFFF;
+    letter-spacing: 0.05em;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.text__footer{
+    width: 494.77px;
+    height: 80px;
+    left: 113px;
+    top: 2931px;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+.footer__top{
+    padding-top: 96px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__button{
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    padding: 15px 80px;
+    background: #5A98D0;
+    text-decoration: none;
+}
+
+.footer__info{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 64px;
+}
+
+.footer__list{
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    flex-grow: 1;
+    flex-basis: 33.3333%;
+    display: flex;
+    margin-right: 32px;
+}
+
+.footer__copy{
+    margin-top: 64px;
+}
+
+.footer__copy-text{
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    padding-bottom: 64px;
+}
+
+.footer__info-soc-med{
+    display: flex;
+    justify-content:center;
+    margin-top: 64px;
+    list-style-type:none;
+}
+
+.soc-med{
+    width: 40px;
+    height: 40px;
+}
+
+.soc-icons{
+    padding-right: 30px;
+}
+/*---------------------------------------Блок стилей занятий---------------------------------------*/
+
+.lessons_header_h2{
+    align-self: center;
+    font-weight: 500;
+    font-size: 64px;
+    text-align: center;
+    line-height: 74px;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    margin-top: 82px;
+}
+
+.header_lessons {
+    background-color: #FF3737;
+    height: 250px;
+    margin-top: 55px;
+    border-radius: 150px;
+}
+
+.lessons_heading-mini{
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #000000;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+}
+
+.lessons_text-mini{
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    color: #000000;
+    letter-spacing: 0.05em;
+}
+
+.text-psy{
+    max-width: 1488px;
+    height: 100%;
+    margin: 0 auto ;
+}
+
+.lessons-heading{
+    font-size: 40px;
+    color: #ffffff;
+    text-shadow: 0 -1px 1px #FDEF02;
+    padding-bottom: 50px;
+    text-align: center;
+    line-height: 51px;
+    letter-spacing: 0.05em;
+}
+
+.psy__img{
+    width: 372px;
+    height: 372px;
+    margin-top: 110px;
+}
+
+.psychologist{
+    max-width: 900px;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: left;
+    text-indent: 5%;
+    color: #ffffff;
+    text-shadow: 0 -1px 1px #FDEF02;
+    letter-spacing: 0.05em;
+}
+
+/*---------------------------------------Блок стилей контакта---------------------------------------*/
+
+.top-contact{
+    width: 100%;
+    min-height: 101px;
+}
+
+.header_contact {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #FF3737;
+    height: 250px;
+    margin-top: 55px;
+    border-radius: 150px;
+}
+
+.headerbody {
+    display: flex;
+
+}
+
+.container {
+    max-width: 1140px;
+    height: 100%;
+    margin: 0 auto ;
+}
+
+.contact_header_h2 {
+    align-self: center;
+    font-weight: 500;
+    font-size: 44px;
+    text-align: center;
+    line-height: 74px;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    margin-top: 32px;
+}
+
+.contact_header_text {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 16px;
+    align-self: center;
+}
+
+.content_contact {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 940px;
+    align-items: center;    
+}
+
+.contact_address {
+    width: 301px;
+    height: 668px;
+}
+
+.forh4 {
+    font-size: 20px;
+    line-height: 30px;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    margin-top: 51px;
+    margin-bottom: 14px;
+    padding-bottom: 24px;
+    text-align: left;
+}
+
+.phone-img{
+    width: 18px;
+    height: 18px;
+    margin-right: 19px;
+}
+
+.phone_nubmers{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+    list-style-type: none;
+}
+
+.site-mail{
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+}
+
+input::placeholder{
+    padding: 21px 42px;
+    font-family: sans-serif;
+}
+
+.contact_p {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    color: #ffffff;
+}
+
+.contact_form {
+    width: 540px;
+    height: 800px;
+    box-shadow: 5px 20px 50px rgb(239 16 16 / 20%);
+    background-color: #d8232a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+::placeholder{
+    padding: 21px 42px;
+    font-family: sans-serif;
+}
+
+.forinput {
+    border: 1px solid #356EAD;
+    background-color: #f9c2c4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 428px;
+    height: 74px;
+    margin-top: 8px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.label_mail {
+    margin-top: 32px;
+    display: inline-block;
+}
+
+.input_mail {
+    margin-top: 8px;
+}
+
+.label_message {
+    margin-top: 32px;
+    display: inline-block;
+}
+
+.fortextarea {
+    border: 1px solid #356EAD;
+    background-color: #f9c2c4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 428px;
+    height: 144px;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+.forbutton {
+    background: #1f3f68;
+    box-shadow: 5px 20px 50px rgba(185, 7, 45, 0.808);
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    width: 428px;
+    height: 70px;
+    margin-top: 42px;
+    border: none;
+}
+
+.text_form {
+    font-size: 16px;
+    line-height: 30px; 
+    letter-spacing: 0.04em;
+    color: #ffffff;  
+    margin-top: 48px;
+}
+.map {
+    margin-top: 96px;
+}
+
+.map_size{
+    width: 100%;
+    height: 480px;
+    border: none;
+}
+
+.work {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 91px;
+    margin-bottom: 96px;
+}
+
+@media (max-width: 1024px){
+    .header{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .home_logo{
+        width: 45px;
+        height: 45px;
+    }
+
+    .head_title{
+        font-size: 8px;
+    }
+
+    .container{
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .top__info{
+        background-position: right 280px;
+    }
+
+    .card-box{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card{
+        margin-bottom: 32px;
+    }
+
+    .psychologist{
+        padding-left: 32px;
+    }
+
+    .items .item{
+        width: 250px;
+        height: 250px;
+    }
+
+    .button-container .button:before{
+        width: 20px;
+        height: 20px;
+        top: 40%;
+    }
+
+    .items .button-container{
+        width: 290px;
+    }
+
+    .arrow{
+        width: 35px;
+        height: 35px;
+    }
+
+    .forinput{
+        width: 450px;
+        height: 50px;
+    }
+
+    .fortextarea{
+        width: 450px;
+        height: 120px;
+    }
+
+    .forbutton{
+        width: 450px;
+        height: 50px;
+    }
+
+    #toTop {
+        width: 1px;
+        height: 1px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 770px){
+    .header{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .top{
+        min-height: 376px;
+        padding-bottom: 41px;
+        box-sizing: border-box;
+    }
+
+    .top__info{
+        padding-top: 36px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: none;
+    }
+
+    .top__heading{
+        width: 100%;
+        font-size: 32px;
+        line-height: 37px;
+        margin-bottom: 12px;
+        margin-top: 70px;
+        text-align: center;
+    }
+
+    .top__text{
+        width: 100%;
+        text-align: center;
+    }
+
+    .top__button{
+        font-size: 12px;
+        line-height: 26px;
+        padding: 0 8px;
+    }
+
+    .items .item{
+        width: 250px;
+        height: 250px;
+    }
+
+    .button-container .button:before{
+        width: 20px;
+        height: 20px;
+        top: 40%;
+    }
+
+    .items .button-container{
+        width: 290px;
+    }
+
+    .arrow{
+        width: 35px;
+        height: 35px;
+    }
+
+    .heading{
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 180px;
+    }
+
+    .what-we-do{
+        padding-top: 48px;
+    }
+
+    .card-box{
+        padding-top: 32px;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+    .text_project{
+        width: 100%;
+    }
+
+    .project{
+        padding-bottom: 120px;
+    }
+
+    .project__text{
+        font-size: 16px;
+        line-height: 19px;
+        top: 16px;
+        right: 16px;
+    }
+
+    .project__text-app{
+        left: 16px;
+    }
+
+    .project__parent{
+        flex-direction: column;
+        margin-top: 16px;
+    }
+
+    .project__item_margin{
+        margin: 0;
+        margin-bottom: 16px;
+    }
+
+    .psy__img{
+        width: 200px;
+        height: 200px;
+        margin-top: 10px;
+    }
+
+    .footer__top{
+        display: inline-block;
+        text-align: center;
+    }
+
+    .footer__heading{
+        text-align: center;
+        width: auto;
+    }
+
+    .text__footer{
+        width: auto;
+        height: auto;
+        padding-bottom: 40px;
+    }
+
+    .forinput{
+        width: 350px;
+        height: 50px;
+    }
+
+    .fortextarea{
+        width: 350px;
+        height: 120px;
+    }
+
+    .forbutton{
+        width: 350px;
+        height: 50px;
+    }
+
+    .footer_text{
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer__button{
+        width: 108px;
+        height: 31px;
+        font-size: 16px;
+        line-height: 26px;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.04em;
+    }
+
+    .footer__info{
+        display: inline-block;
+    }
+
+    .footer__list{
+        padding-bottom: 17.5px;
+    }
+
+    .footer__copy-text{
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 570px) {
+    .header{
+        padding-bottom: 7px;
+    }
+
+    .home_logo{
+        width: 25px;
+        height: 25px;
+    }
+
+    .head_title{
+        font-size: 8px;
+    }
+
+    .heading{
+        margin-bottom: 120px;
+    }
+
+    .project{
+        padding-bottom: 70px;
+    }
+    
+    .contact_header_h2{
+        font-size: 32px;
+    }    
+    
+    .contact_header_text{
+        font-size: 16px;
+    }
+
+    .items .item{
+        width: 150px;
+        height: 150px;
+    }
+
+    .button-container .button:before{
+        width: 20px;
+        height: 20px;
+        top: 43%;
+    }
+
+    .items .button-container{
+        width: 180px;
+    }
+
+    .arrow{
+        width: 25px;
+        height: 25px;
+    }
+
+    .lessons_header_h2 {
+        font-size: 34px;
+    }
+
+    .text_form {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 16px;
+        line-height: 30px; 
+        letter-spacing: 0.04em;
+        color: #ffffff;  
+        margin-top: 48px;
+    }
+
+    .forinput{
+        width: 210px;
+        height: 50px;
+    }
+
+    .fortextarea{
+        width: 210px;
+        height: 120px;
+    }
+
+    .forbutton{
+        width: 210px;
+        height: 50px;
+    }
+}
